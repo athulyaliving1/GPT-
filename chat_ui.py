@@ -55,23 +55,20 @@ with st.sidebar:
             st.session_state.messages = session["messages"]
             st.session_state.selected_chat_index = i
 
-    # New Chat Button
     st.markdown("---")
     if st.button("➕ New Chat"):
         if st.session_state.messages:
-            # Get title from first user message
             user_msg = next((msg for msg in st.session_state.messages if msg["role"] == "user"), None)
             title = user_msg["content"][:30] + "..." if user_msg else "Untitled Chat"
 
-            # Save current chat
             st.session_state.chat_sessions.append({
                 "title": title,
                 "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "model": st.session_state.model,
                 "messages": st.session_state.messages.copy()
             })
             save_history(st.session_state.chat_sessions)
 
-        # Start new chat
         st.session_state.messages = []
         st.session_state.selected_chat_index = None
 
@@ -110,3 +107,23 @@ if user_prompt:
     assistant_response = generate_response(user_prompt, st.session_state.model)
     st.chat_message("assistant").markdown(assistant_response)
     st.session_state.messages.append({"role": "assistant", "content": assistant_response})
+
+    # ---- Save or Update Chat Session ----
+    if st.session_state.messages:
+        user_msg = next((msg for msg in st.session_state.messages if msg["role"] == "user"), None)
+        title = user_msg["content"][:30] + "..." if user_msg else "Untitled Chat"
+
+        if st.session_state.selected_chat_index is not None:
+            # Update existing session
+            st.session_state.chat_sessions[st.session_state.selected_chat_index]["messages"] = st.session_state.messages.copy()
+        else:
+            # Create new session
+            st.session_state.chat_sessions.append({
+                "title": title,
+                "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                "model": st.session_state.model,
+                "messages": st.session_state.messages.copy()
+            })
+            st.session_state.selected_chat_index = len(st.session_state.chat_sessions) - 1
+
+        save_history(st.session_state.chat_sessions)
