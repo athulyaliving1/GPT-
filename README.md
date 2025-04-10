@@ -54,5 +54,6 @@ ollama serve
 Start the Streamlit app:
 
 
-streamlit chat_ui.py
+streamlit run chat_ui.py
+
 
