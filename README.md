@@ -53,7 +53,9 @@ Install Ollama to run LLM models locally:
 
        pip install ollama streamlit requests
 
+**Run in terminal or cmd using**
 
+       streamlit run chat_ui.py
 
 On Windows, download and install via https://ollama.com/download
 
