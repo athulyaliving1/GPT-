@@ -21,8 +21,16 @@ Make sure Python 3.8+ is installed.
 Download from: https://www.python.org/downloads/
 
 ### 2. Install Ollama
+
+**On linux/macOS**
+
 Install Ollama to run LLM models locally:
 
+       curl -fsSL https://ollama.com/install.sh | sh
+
+**On windows**
+Install Ollama to run LLM models locally:
+       
        https://ollama.com/download
 
 
@@ -44,8 +52,13 @@ Install Ollama to run LLM models locally:
 
 **Activate Virtual env**
 
+**On Linux/macOS:**
 
-    venv\Scripts\activate
+       source venv/bin/activate
+
+**On Windows:**
+
+       venv\Scripts\activate
 
 
 **Install Required Packages**
