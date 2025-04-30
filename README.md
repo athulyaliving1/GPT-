@@ -26,6 +26,14 @@ Install Ollama to run LLM models locally:
 bash
 curl -fsSL https://ollama.com/install.sh | sh
 
+
+
+**Pull LLM Models**
+       ollama pull mistral:latest
+       ollama pull deepseek-r1:latest
+       ollama pull deepseek-r1:7b
+
+       
 **Create Virtual env**
 
 
