@@ -23,14 +23,16 @@ Download from: https://www.python.org/downloads/
 ### 2. Install Ollama
 Install Ollama to run LLM models locally:
 
-bash
-curl -fsSL https://ollama.com/install.sh | sh
+       https://ollama.com/download
 
 
 
 **Pull LLM Models**
+
        ollama pull mistral:latest
+       
        ollama pull deepseek-r1:latest
+       
        ollama pull deepseek-r1:7b
 
        
