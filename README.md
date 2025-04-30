@@ -41,7 +41,7 @@ curl -fsSL https://ollama.com/install.sh | sh
 **Install Required Packages**
 
 
-   pip install ollama streamlit requests
+       pip install ollama streamlit requests
 
 
 
