@@ -26,6 +26,18 @@ Install Ollama to run LLM models locally:
 bash
 curl -fsSL https://ollama.com/install.sh | sh
 
+**Create Virtual env**
+    python -m venv venv
+
+
+**Activate Virtual env**
+    venv\Scripts\activate
+
+
+**Install Required Packages**
+   pip install ollama streamlit requests
+
+
 
 On Windows, download and install via https://ollama.com/download
 
